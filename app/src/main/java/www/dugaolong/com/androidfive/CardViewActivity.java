@@ -35,7 +35,7 @@ public class CardViewActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
-                mCardView.setRadius(progress);
+                mCardView.setRadius(progress*2);
             }
 
             @Override
