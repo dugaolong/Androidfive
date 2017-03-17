@@ -16,6 +16,7 @@ public class CardViewActivity extends Activity {
     private CardView mCardView;
     private SeekBar radius;
     private SeekBar elevation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
