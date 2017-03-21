@@ -27,7 +27,7 @@
 
     <item
         android:id="@+id/action_overflow"
-        android:icon="@drawable/more"
+        android:icon="@drawable/search_bar_icon_normal"
         android:orderInCategory="100"
         android:title="action_more"
         app:showAsAction="always" />

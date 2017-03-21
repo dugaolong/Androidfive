@@ -18,10 +18,10 @@
         </activity>
         <activity android:name=".CardViewActivity">
             </activity>
-        <activity android:name=".StaggaredRecycleView">
-        </activity>
         <activity android:name=".ToolBarActivity"
             android:theme="@style/AppTheme.Base">
+        </activity>
+        <activity android:name=".RippleEffectActivity">
         </activity>
     </application>
 

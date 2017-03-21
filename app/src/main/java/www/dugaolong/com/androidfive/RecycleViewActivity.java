@@ -69,8 +69,8 @@ public class RecycleViewActivity extends Activity {
     private void initDatas() {
         mDatas = new ArrayList<String>();
         mDatas.add("CardView");
-        mDatas.add("CardView,CardView,CardView");
-        mDatas.add("CardView,CardView,CardView");
+        mDatas.add("ToolBBar,ToolBBar,ToolBBar");
+        mDatas.add("RippleEffect,RippleEffect,RippleEffect");
         mDatas.add("CardView");
         mDatas.add("CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView");
         mDatas.add("CardView,CardView,CardView");
@@ -89,6 +89,10 @@ public class RecycleViewActivity extends Activity {
         }
         if (position == 1) {
             Intent intent = new Intent(RecycleViewActivity.this, ToolBarActivity.class);
+            startActivity(intent);
+        }
+        if (position == 2) {
+            Intent intent = new Intent(RecycleViewActivity.this, RippleEffectActivity.class);
             startActivity(intent);
         }
 
