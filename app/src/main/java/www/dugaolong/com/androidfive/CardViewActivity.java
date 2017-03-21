@@ -1,9 +1,9 @@
 package www.dugaolong.com.androidfive;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.widget.SeekBar;
 
@@ -11,7 +11,7 @@ import android.widget.SeekBar;
  * Created by dugaolong on 17/3/16.
  */
 
-public class CardViewActivity extends Activity {
+public class CardViewActivity extends AppCompatActivity {
 
     private CardView mCardView;
     private SeekBar radius;

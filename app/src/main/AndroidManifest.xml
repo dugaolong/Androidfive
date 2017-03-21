@@ -6,22 +6,25 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecycleViewActivity"
-            android:label="recycleView">
+        <activity android:name=".RecycleViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CardViewActivity">
+        <activity android:name=".CardViewActivity"
+            android:label="CardViewActivity">
             </activity>
         <activity android:name=".ToolBarActivity"
             android:theme="@style/AppTheme.Base">
         </activity>
-        <activity android:name=".RippleEffectActivity">
+        <activity android:name=".RippleEffectActivity"
+            android:label="RippleEffectActivity">
+        </activity>
+        <activity android:name=".TabLayoutActivity"
+            android:label="TabLayoutActivity">
         </activity>
     </application>
 
