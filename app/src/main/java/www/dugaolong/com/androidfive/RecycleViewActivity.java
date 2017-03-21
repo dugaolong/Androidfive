@@ -3,11 +3,17 @@ package www.dugaolong.com.androidfive;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +35,9 @@ public class RecycleViewActivity extends AppCompatActivity {
 
     private Context mContext;
     private RecyclerView.LayoutManager mLayoutManager;
+    private DrawerLayout mDrawerLayout;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +66,38 @@ public class RecycleViewActivity extends AppCompatActivity {
             }
 
         });
+        initToolBar();
     }
 
     private void initViews() {
         mRecycleview = (RecyclerView) findViewById(R.id.id_recycleview);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main_drawer);
+        navigationView =
+                (NavigationView) findViewById(R.id.nv_main_navigation);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(
+                    new NavigationView.OnNavigationItemSelectedListener() {
+                        @Override
+                        public boolean onNavigationItemSelected(MenuItem menuItem) {
+                            menuItem.setChecked(true);
+                            mDrawerLayout.closeDrawers();
+                            return true;
+                        }
+                    });
+        }
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(mContext,"fab clicked",Toast.LENGTH_LONG).show();
+                Snackbar.make(v,"data delete ",Snackbar.LENGTH_SHORT).setAction("yes", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(mContext,"data has delete",Toast.LENGTH_LONG).show();
+                    }
+                }).show();
+            }
+        });
     }
 
     private void initDatas() {
@@ -113,13 +150,13 @@ public class RecycleViewActivity extends AppCompatActivity {
                 //设置布局管理
                 mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
                 mRecycleview.setLayoutManager(mLayoutManager);
-                break;
+                return true;
             case R.id.menu_gridview:
                 Toast.makeText(getApplicationContext(), "grid", Toast.LENGTH_LONG).show();
                 //设置布局管理
                 mLayoutManager = new GridLayoutManager(this, 3);
                 mRecycleview.setLayoutManager(mLayoutManager);
-                break;
+                return true;
             case R.id.menu_staggaredgridview:
                 Toast.makeText(getApplicationContext(), "staggaredgridview", Toast.LENGTH_LONG).show();
                 int spanCount = 2;
@@ -128,12 +165,42 @@ public class RecycleViewActivity extends AppCompatActivity {
                         spanCount,
                         StaggeredGridLayoutManager.VERTICAL);
                 mRecycleview.setLayoutManager(mLayoutManager);
-                break;
+                return true;
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+    private void initToolBar() {
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar.setTitle(R.string.app_name);
+//        toolbar.setTitleTextColor(Color.parseColor(getResources().getColor(R.color.app_theme_color)));
+        toolbar.collapseActionView();
+//        toolbar.setBackground(getResources().getDrawable(R.drawable.skin2));
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                TestInstance.i();
+                openOrCloseDrawer();
+            }
+        });
+    }
+    private void openOrCloseDrawer() {
+        if (mDrawerLayout.isDrawerOpen(navigationView)) {
+            mDrawerLayout.closeDrawer(navigationView);
+        } else {
+            mDrawerLayout.openDrawer(navigationView);
+        }
+    }
 
 }
