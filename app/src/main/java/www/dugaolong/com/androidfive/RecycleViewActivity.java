@@ -90,10 +90,10 @@ public class RecycleViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(mContext,"fab clicked",Toast.LENGTH_LONG).show();
-                Snackbar.make(v,"data delete ",Snackbar.LENGTH_SHORT).setAction("yes", new View.OnClickListener() {
+                Snackbar.make(v, "data delete ", Snackbar.LENGTH_SHORT).setAction("yes", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext,"data has delete",Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext, "data has delete", Toast.LENGTH_LONG).show();
                     }
                 }).show();
             }
@@ -106,7 +106,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         mDatas.add("ToolBBar,ToolBBar,ToolBBar");
         mDatas.add("RippleEffect,RippleEffect,RippleEffect");
         mDatas.add("TabLayoutActivity");
-        mDatas.add("CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView");
+        mDatas.add("MaterialDesignActivity");
         mDatas.add("CardView,CardView,CardView");
         mDatas.add("CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView," +
                 "CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView");
@@ -131,6 +131,10 @@ public class RecycleViewActivity extends AppCompatActivity {
         }
         if (position == 3) {
             Intent intent = new Intent(RecycleViewActivity.this, TabLayoutActivity.class);
+            startActivity(intent);
+        }
+        if (position == 4) {
+            Intent intent = new Intent(RecycleViewActivity.this, MaterialDesignActivity.class);
             startActivity(intent);
         }
 
@@ -174,6 +178,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void initToolBar() {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -195,6 +200,7 @@ public class RecycleViewActivity extends AppCompatActivity {
             }
         });
     }
+
     private void openOrCloseDrawer() {
         if (mDrawerLayout.isDrawerOpen(navigationView)) {
             mDrawerLayout.closeDrawer(navigationView);

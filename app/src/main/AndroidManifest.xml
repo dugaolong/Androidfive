@@ -27,6 +27,9 @@
         <activity android:name=".TabLayoutActivity"
             android:label="TabLayoutActivity">
         </activity>
+        <activity android:name=".MaterialDesignActivity"
+            android:label="MaterialDesignActivity">
+        </activity>
     </application>
 
 </manifest>
