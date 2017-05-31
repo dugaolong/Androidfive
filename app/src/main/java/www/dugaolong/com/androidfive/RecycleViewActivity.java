@@ -2,6 +2,9 @@ package www.dugaolong.com.androidfive;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,6 +17,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +43,9 @@ public class RecycleViewActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView navigationView;
 
+    private PackageManager mPackageManager;
+    private List<ResolveInfo> mAllApps;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +56,17 @@ public class RecycleViewActivity extends AppCompatActivity {
         initDatas();
         initViews();
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            for(int i=0;i<Build.SUPPORTED_ABIS.length;i++){
+                Log.e("QtsppApplication", "SUPPORTED_ABIS:"+Build.SUPPORTED_ABIS[i]);
+            }
+        }
         FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(this);
+        // 设置是否允许嵌套滑动
         mRecycleview.setNestedScrollingEnabled(false);
         linearLayoutManager.setSmoothScrollbarEnabled(true);
         //设置布局管理器
         mRecycleview.setLayoutManager(linearLayoutManager);
-
 
         mRecycleAdapter = new RecycleAdapter(this, mDatas);
         mRecycleview.setAdapter(mRecycleAdapter);
@@ -112,14 +123,25 @@ public class RecycleViewActivity extends AppCompatActivity {
                 "CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView");
         mDatas.add("CardView");
         mDatas.add("CardView,CardView,CardView,CardView");
-
+        mPackageManager = getPackageManager();
 
     }
 
     private void clickItem(int position) {
         if (position == 0) {
-            Intent intent = new Intent(RecycleViewActivity.this, CardViewActivity.class);
-            startActivity(intent);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    //应用过滤条件
+                    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    mAllApps = mPackageManager.queryIntentActivities(mainIntent, 0);
+                    for(int i=0;i<mAllApps.size();i++){
+                        Log.e("mAllApps",mAllApps.get(i).activityInfo.packageName.toString());
+                    }
+                }
+            }).start();
+
         }
         if (position == 1) {
             Intent intent = new Intent(RecycleViewActivity.this, ToolBarActivity.class);
