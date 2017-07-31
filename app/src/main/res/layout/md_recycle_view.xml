@@ -4,42 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-
+    android:fitsSystemWindows="true"
+    tools:context=".MaterialDesignActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="180dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/bar"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/app_theme_color"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:layout_scrollFlags="scroll|enterAlways">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:background="@mipmap/ic_launcher">
 
-        </android.support.v7.widget.Toolbar>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                />
 
+        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refrash"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <include layout="@layout/content_scrolling" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/id_recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
 </android.support.design.widget.CoordinatorLayout>
+
+
+
+<!--<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/white"-->
+    <!--android:fitsSystemWindows="true">-->
+
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark">-->
+
+
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/app_theme_color"-->
+            <!--android:minHeight="?attr/actionBarSize"-->
+            <!--app:layout_scrollFlags="scroll|enterAlways">-->
+
+        <!--</android.support.v7.widget.Toolbar>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+        <!--&gt;-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20sp"-->
+            <!--android:lineSpacingExtra="8dp"-->
+            <!--android:text="打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件打开了咖啡馆空间看了接口积分空积分空当接龙jdk乐哥jdk立法机关开发对接管理会-->
+            <!--计地方看过就离开的房间观看了交电费开关机看风景贷款纠纷会计的空间看-->
+            <!--房地局肯德基开发接口点击量看-->
+            <!--附件贷款纠纷肯德基开发登陆开发就离开第几个克己奉公苦尽甘来空间的路口附近的离开过江东父老开关金风科技挂靠-->
+            <!--房地局空间看了附件看了就开了就看逻辑考虑到九分裤理解的附件肯德基链接阿里的空间路口附近的浪费空间离开家离开家"-->
+            <!--android:padding="@dimen/activity_horizontal_margin"-->
+            <!--/>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/id_recycleview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+    <!--</android.support.v7.widget.RecyclerView>-->
+
+
+<!--</android.support.design.widget.CoordinatorLayout>-->

@@ -34,6 +34,14 @@
         <activity android:name=".MaterialDesignActivity"
             android:label="MaterialDesignActivity">
         </activity>
+        <activity android:name=".charts.ChartsAcitivty"
+            android:label="line"> </activity>
+        <activity android:name=".charts.PieChartActivity"
+            android:label="pie">
+        </activity>
+        <activity android:name=".charts.PieChartActivityT"
+            android:label="pie">
+        </activity>
     </application>
 
 </manifest>

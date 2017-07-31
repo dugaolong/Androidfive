@@ -26,6 +26,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import www.dugaolong.com.androidfive.charts.ChartsAcitivty;
+import www.dugaolong.com.androidfive.charts.PieChartActivity;
+import www.dugaolong.com.androidfive.charts.PieChartActivityT;
+
 /**
  * Created by dugaolong on 16/8/21.
  * adapter
@@ -113,34 +117,23 @@ public class RecycleViewActivity extends AppCompatActivity {
 
     private void initDatas() {
         mDatas = new ArrayList<String>();
-        mDatas.add("CardView,CardView,CardView,CardView,CardView,CardView,");
-        mDatas.add("ToolBBar,ToolBBar,ToolBBar");
-        mDatas.add("RippleEffect,RippleEffect,RippleEffect");
-        mDatas.add("TabLayoutActivity");
-        mDatas.add("MaterialDesignActivity");
-        mDatas.add("CardView,CardView,CardView");
-        mDatas.add("CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView," +
-                "CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView,CardView");
-        mDatas.add("CardView");
-        mDatas.add("CardView,CardView,CardView,CardView");
+        mDatas.add("0CardView,CardView,CardView,CardView,CardView,CardView,");
+        mDatas.add("1ToolBBar,ToolBBar,ToolBBar");
+        mDatas.add("2RippleEffect,RippleEffect,RippleEffect");
+        mDatas.add("3TabLayoutActivity");
+        mDatas.add("4MaterialDesignActivity");
+        mDatas.add("5ChartsAcitivty,ChartsAcitivty,ChartsAcitivty,ChartsAcitivty");
+        mDatas.add("6PieChartActivity,PieChartActivity,PieChartActivity,PieChartActivity");
+        mDatas.add("7PieChartActivityT,PieChartActivityT,PieChartActivityT,PieChartActivityT");
+        mDatas.add("8ResolveInfo");
         mPackageManager = getPackageManager();
 
     }
 
     private void clickItem(int position) {
         if (position == 0) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    //应用过滤条件
-                    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                    mAllApps = mPackageManager.queryIntentActivities(mainIntent, 0);
-                    for(int i=0;i<mAllApps.size();i++){
-                        Log.e("mAllApps",mAllApps.get(i).activityInfo.packageName.toString());
-                    }
-                }
-            }).start();
+            Intent intent = new Intent(RecycleViewActivity.this, CardViewActivity.class);
+            startActivity(intent);
 
         }
         if (position == 1) {
@@ -158,6 +151,35 @@ public class RecycleViewActivity extends AppCompatActivity {
         if (position == 4) {
             Intent intent = new Intent(RecycleViewActivity.this, MaterialDesignActivity.class);
             startActivity(intent);
+        }
+        if (position == 5) {
+            Intent intent = new Intent(RecycleViewActivity.this, ChartsAcitivty.class);
+            startActivity(intent);
+        }
+
+        if (position == 6) {
+            Intent intent = new Intent(RecycleViewActivity.this, PieChartActivity.class);
+            startActivity(intent);
+        }
+
+        if (position == 7) {
+            Intent intent = new Intent(RecycleViewActivity.this, PieChartActivityT.class);
+            startActivity(intent);
+        }
+
+        if (position == 7) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    //应用过滤条件
+                    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    mAllApps = mPackageManager.queryIntentActivities(mainIntent, 0);
+                    for(int i=0;i<mAllApps.size();i++){
+                        Log.e("mAllApps",mAllApps.get(i).activityInfo.packageName.toString());
+                    }
+                }
+            }).start();
         }
 
     }
@@ -210,10 +232,10 @@ public class RecycleViewActivity extends AppCompatActivity {
         toolbar.collapseActionView();
 //        toolbar.setBackground(getResources().getDrawable(R.drawable.skin2));
         setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
