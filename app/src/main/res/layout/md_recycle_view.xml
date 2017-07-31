@@ -21,7 +21,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:background="@mipmap/ic_launcher">
+            android:background="@drawable/meizi">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
