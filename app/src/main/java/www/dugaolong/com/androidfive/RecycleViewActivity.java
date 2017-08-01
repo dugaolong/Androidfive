@@ -1,5 +1,6 @@
 package www.dugaolong.com.androidfive;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -126,6 +127,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         mDatas.add("6PieChartActivity,PieChartActivity,PieChartActivity,PieChartActivity");
         mDatas.add("7PieChartActivityT,PieChartActivityT,PieChartActivityT,PieChartActivityT");
         mDatas.add("8ResolveInfo");
+        mDatas.add("9menu");
         mPackageManager = getPackageManager();
 
     }
@@ -167,7 +169,7 @@ public class RecycleViewActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        if (position == 7) {
+        if (position == 8) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -180,6 +182,12 @@ public class RecycleViewActivity extends AppCompatActivity {
                     }
                 }
             }).start();
+        }
+
+        if (position == 9) {
+            IntentProjectUtil.startActivityByActionName((Activity) mContext, "MainActivity");
+//            Intent intent = new Intent(RecycleViewActivity.this, PieChartActivityT.class);
+//            startActivity(intent);
         }
 
     }
