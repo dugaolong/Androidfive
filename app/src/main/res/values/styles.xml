@@ -22,7 +22,7 @@
         <!--colorAccent 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色。-->
         <item name="colorAccent">@color/editColor</item>
         <!--窗口的颜色-->
-        <item name="android:windowBackground">@color/app_theme_color</item>
+        <item name="android:windowBackground">@color/white</item>
 
     </style>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

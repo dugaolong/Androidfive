@@ -20,18 +20,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".CardViewActivity"
+            android:theme="@style/AppTheme.Base"
             android:label="CardViewActivity">
             </activity>
         <activity android:name=".ToolBarActivity"
             android:theme="@style/AppTheme.Base">
         </activity>
         <activity android:name=".RippleEffectActivity"
+            android:theme="@style/AppTheme.Base"
             android:label="RippleEffectActivity">
         </activity>
         <activity android:name=".TabLayoutActivity"
+            android:theme="@style/AppTheme.Base"
             android:label="TabLayoutActivity">
         </activity>
         <activity android:name=".MaterialDesignActivity"
+            android:theme="@style/AppTheme.Base"
             android:label="MaterialDesignActivity">
         </activity>
         <activity android:name=".charts.ChartsAcitivty"
