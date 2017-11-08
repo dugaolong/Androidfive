@@ -2,6 +2,7 @@ package www.dugaolong.com.androidfive;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -12,6 +13,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -128,6 +130,7 @@ public class RecycleViewActivity extends AppCompatActivity {
         mDatas.add("7PieChartActivityT,PieChartActivityT,PieChartActivityT,PieChartActivityT");
         mDatas.add("8ResolveInfo");
         mDatas.add("9menu");
+        mDatas.add("10menu");
         mPackageManager = getPackageManager();
 
     }
@@ -189,7 +192,44 @@ public class RecycleViewActivity extends AppCompatActivity {
 //            Intent intent = new Intent(RecycleViewActivity.this, PieChartActivityT.class);
 //            startActivity(intent);
         }
+        if (position == 10) {
+            new android.app.AlertDialog.Builder(RecycleViewActivity.this,R.style.AlertDialog)
+//                .setTitle("提醒")
+                    .setMessage("该产品体验期已结束，需开通后使用")
+                    .setNegativeButton("好的", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
 
+        }
+
+    }
+
+    private void showNormalDialog(){
+        //创建dialog构造器
+        AlertDialog.Builder normalDialog = new AlertDialog.Builder(this);
+        //设置title
+        normalDialog.setTitle("title");
+        //设置icon
+        normalDialog.setIcon(R.mipmap.ic_launcher);
+        //设置内容
+        normalDialog.setMessage("this is content");
+        //设置按钮
+        normalDialog.setPositiveButton("confirm"
+                , new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(RecycleViewActivity.this,"confirm"
+                                ,Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+        //创建并显示
+        normalDialog.create().show();
     }
 
     @Override
