@@ -4,52 +4,61 @@
 
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecycleViewActivity"
+        <activity
+            android:name=".RecycleViewActivity"
             android:theme="@style/AppTheme.Base">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".CardViewActivity"
+            android:label="CardViewActivity"
+            android:theme="@style/AppTheme.Base"></activity>
+        <activity
+            android:name=".ToolBarActivity"
+            android:theme="@style/AppTheme.Base"></activity>
+        <activity
+            android:name=".RippleEffectActivity"
+            android:label="RippleEffectActivity"
+            android:theme="@style/AppTheme.Base"></activity>
+        <activity
+            android:name=".TabLayoutActivity"
+            android:label="TabLayoutActivity"
+            android:theme="@style/AppTheme.Base"></activity>
+        <activity
+            android:name=".MaterialDesignActivity"
+            android:label="MaterialDesignActivity"
+            android:theme="@style/AppTheme.Base"></activity>
+        <activity
+            android:name=".charts.ChartsAcitivty"
+            android:label="line"></activity>
+        <activity
+            android:name=".charts.PieChartActivity"
+            android:label="pie"></activity>
+        <activity
+            android:name=".charts.PieChartActivityT"
+            android:label="pie"></activity>
+        <activity android:name=".brage.BrageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".CardViewActivity"
-            android:theme="@style/AppTheme.Base"
-            android:label="CardViewActivity">
-            </activity>
-        <activity android:name=".ToolBarActivity"
-            android:theme="@style/AppTheme.Base">
-        </activity>
-        <activity android:name=".RippleEffectActivity"
-            android:theme="@style/AppTheme.Base"
-            android:label="RippleEffectActivity">
-        </activity>
-        <activity android:name=".TabLayoutActivity"
-            android:theme="@style/AppTheme.Base"
-            android:label="TabLayoutActivity">
-        </activity>
-        <activity android:name=".MaterialDesignActivity"
-            android:theme="@style/AppTheme.Base"
-            android:label="MaterialDesignActivity">
-        </activity>
-        <activity android:name=".charts.ChartsAcitivty"
-            android:label="line"> </activity>
-        <activity android:name=".charts.PieChartActivity"
-            android:label="pie">
-        </activity>
-        <activity android:name=".charts.PieChartActivityT"
-            android:label="pie">
         </activity>
 
         <activity
             android:name="com.vonchenchen.menudemo.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="menuMainActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
