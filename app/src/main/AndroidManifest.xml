@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="www.dugaolong.com.androidfive">
+    package="www.dgl.com.androidfive">
 
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".RecycleViewActivity"
+            android:name="www.dgl.com.androidfive.RecycleViewActivity"
             android:theme="@style/AppTheme.Base">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
@@ -22,34 +22,34 @@
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name=".CardViewActivity"
+            android:name="www.dgl.com.androidfive.CardViewActivity"
             android:label="CardViewActivity"
             android:theme="@style/AppTheme.Base"></activity>
         <activity
-            android:name=".ToolBarActivity"
+            android:name="www.dgl.com.androidfive.ToolBarActivity"
             android:theme="@style/AppTheme.Base"></activity>
         <activity
-            android:name=".RippleEffectActivity"
+            android:name="www.dgl.com.androidfive.RippleEffectActivity"
             android:label="RippleEffectActivity"
             android:theme="@style/AppTheme.Base"></activity>
         <activity
-            android:name=".TabLayoutActivity"
+            android:name="www.dgl.com.androidfive.TabLayoutActivity"
             android:label="TabLayoutActivity"
             android:theme="@style/AppTheme.Base"></activity>
         <activity
-            android:name=".MaterialDesignActivity"
+            android:name="www.dgl.com.androidfive.MaterialDesignActivity"
             android:label="MaterialDesignActivity"
             android:theme="@style/AppTheme.Base"></activity>
         <activity
-            android:name=".charts.ChartsAcitivty"
+            android:name="www.dgl.com.androidfive.charts.ChartsAcitivty"
             android:label="line"></activity>
         <activity
-            android:name=".charts.PieChartActivity"
+            android:name="www.dgl.com.androidfive.charts.PieChartActivity"
             android:label="pie"></activity>
         <activity
-            android:name=".charts.PieChartActivityT"
+            android:name="www.dgl.com.androidfive.charts.PieChartActivityT"
             android:label="pie"></activity>
-        <activity android:name=".brage.BrageActivity">
+        <activity android:name="www.dgl.com.androidfive.brage.BrageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
