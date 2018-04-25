@@ -29,6 +29,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import www.dgl.com.androidfive.brage.BrageActivity;
 import www.dgl.com.androidfive.charts.ChartsAcitivty;
 import www.dgl.com.androidfive.charts.PieChartActivity;
 import www.dgl.com.androidfive.charts.PieChartActivityT;
@@ -128,9 +129,11 @@ public class RecycleViewActivity extends AppCompatActivity {
         mDatas.add("5ChartsAcitivty,ChartsAcitivty,ChartsAcitivty,ChartsAcitivty");
         mDatas.add("6PieChartActivity,PieChartActivity,PieChartActivity,PieChartActivity");
         mDatas.add("7PieChartActivityT,PieChartActivityT,PieChartActivityT,PieChartActivityT");
-        mDatas.add("8ResolveInfo");
-        mDatas.add("9menu");
-        mDatas.add("10menu");
+        mDatas.add("8手机中的第三方应用的包名");
+        mDatas.add("9 intent隐式跳转");
+        mDatas.add("10 AlertDialog");
+        mDatas.add("11 测试角标");
+        mDatas.add("12 自定义progressbar");
         mPackageManager = getPackageManager();
 
     }
@@ -204,6 +207,15 @@ public class RecycleViewActivity extends AppCompatActivity {
                     })
                     .show();
 
+        }
+
+        if (position == 11) {
+            Intent intent = new Intent(RecycleViewActivity.this, BrageActivity.class);
+            startActivity(intent);
+        }
+        if (position == 12) {
+            Intent intent = new Intent(RecycleViewActivity.this, ProgressbarActivity.class);
+            startActivity(intent);
         }
 
     }
